@@ -2,26 +2,25 @@
 
 ### Welcome!
 
-First off, thank you for considering contributing to Homer!
+First off, thank you for considering contributing to inQUIZitive!
 
 ### Project philosophy
 
-Homer is meant to be a light and very simple dashboard that keeps all your usefull utilities at hands. The few features implemented in Homer focus on
-UX and usability. If you are looking for a full featured dashboard, there is tons of great stuff out there like https://heimdall.site/, https://github.com/rmountjoy92/DashMachine or https://organizr.app/.
+inQUIZitive is meant to be a light and very simple quiz platoform to allow students to revise for their exams. The few features implemented focus on
+GCSE Computer Science in the UK. We are looking at creating a way for other subjects to use it too.
 
-- Configuration is stored in a simple config file, avoiding the need for a backend/database while making possible to use versionning or [config template](https://docs.ansible.com/ansible/latest/user_guide/playbooks_templating.html).
 - Only modern browsers are supported, feel free to use any JS features without any polyfill as soon as the latest version of the major browsers supports them.
 
 ### Roadmap
 
-If you want to know more about the project direction or looking for something to work on, checkout the [roadmap](https://github.com/bastienwirtz/homer#Roadmap)!
-Feel free to open an issue if you have any question.
+If you want to know more about the project direction or looking for something to work on, checkout the [roadmap](https://github.com/AlexanderEDavis/inQUIZitive#Roadmap)!
+Feel free to open an issue if you have any questions.
 
 # Ground Rules
 
 ### Code of conduct and guidelines
 
-First of all, we expect everyone (contributors and maintainers alike) to respect the [Code of conduct](https://github.com/bastienwirtz/homer/blob/master/CODE_OF_CONDUCT.md). It is not a recomandation, it is mandatory.
+First of all, we expect everyone (contributors and maintainers alike) to respect the [Code of conduct](https://github.com/AlexanderEDavis/inQUIZitive/blob/master/.github/CODE_OF_CONDUCT.md). It is not a recommendation, it is mandatory.
 
 For all contributions, please respect the following guidelines:
 
