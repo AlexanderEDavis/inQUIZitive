@@ -22,3 +22,8 @@ To create a quiz using the inQUIZitive framework, download the exe file and run 
 # Questions and Support
 Got a question? [Email me here](mailto:inquizitive@mrdavis.work).
 Found an issue or a bug? Fill in the [issue form](https://github.com/AlexanderEDavis/inQUIZitive/issues/new/choose)
+
+# Roadmap
+- [x] Create console based file generator.
+- [ ] Create GUI based file generator.
+- [ ] Design and create home screen for standalone web app
