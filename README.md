@@ -1,6 +1,6 @@
 # Welcome to inQUIZitive!
 
-inQUIZitive is an online quiz platform to allow students to test themselves. Coming soon to a screen near you!
+inQUIZitive is an online quiz platform to allow students to test themselves.
 
 ## Discover
 Find areas of development on quickly and easily
@@ -20,10 +20,12 @@ To create a quiz using the inQUIZitive framework, download the exe file and run 
    1. Copy the contents of the file and embed it into your existing site.
 
 # Questions and Support
-Got a question? [Email me here](mailto:inquizitive@mrdavis.work).
-Found an issue or a bug? Fill in the [issue form](https://github.com/AlexanderEDavis/inQUIZitive/issues/new/choose)
+[Got a question?](mailto:inquizitive@mrdavis.work)  
+[Found an issue or a bug?](https://github.com/AlexanderEDavis/inQUIZitive/issues/new/choose)  
+[Want to contribute to inQUIZitive?](https://github.com/AlexanderEDavis/inQUIZitive/blob/master/.github/CONTRIBUTING.md)  
+[Need to check our code of conduct](https://github.com/AlexanderEDavis/inQUIZitive/blob/master/.github/CODE_OF_CONDUCT.md)
 
 # Roadmap
-- [x] Create console based file generator.
-- [ ] Create GUI based file generator.
-- [ ] Design and create home screen for standalone web app
+- [x]  ~~Create console based file generator.~~
+- [ ]  Create GUI based file generator.
+- [ ]  Design and create home screen for standalone web app (_concept images coming soon_)
