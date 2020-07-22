@@ -41,6 +41,6 @@ feel free to open an issue to present your idea.
 The general process to submit a contribution is as follow:
 1. Create your own fork of the code
 2. Do the changes in your fork
-3. Make sure to fill the [pull request description](https://github.com/bastienwirtz/homer/blob/master/.github/PULL_REQUEST_TEMPLATE.md) properly.
+3. Make sure to fill the [pull request description](https://github.com/AlexanderEDavis/inQUIZitive/blob/master/.github/PULL_REQUEST_TEMPLATE/pull_request_template.md) properly.
 
 ### Happy coding :metal:
