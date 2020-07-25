@@ -1,5 +1,4 @@
 questionNumber = 0
-availableOptions= []
 fileName = input("What would you like the file to be called?\n")
 with open(fileName + '.html', 'a') as a:
     a.write("<!DOCTYPE html>\n<html>\n<head>\n<meta charset=\"UTF-8\">\n<link rel=\"stylesheet\" type=\"text/css\" href=\"https://quiz.mrdavis.work/quiz.css\" />\n</head>\n<body>\n")
@@ -17,6 +16,7 @@ with open(fileName + '.html', 'a') as a:
         a.write("    {\n      question: \"" + question + "\",\n      answers: {\n")
         numAnswer = int(input("How many answers are there in total?\n"))
         answerOptions = ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"]
+        availableOptions= []
         for i in range(0,(numAnswer)):
             availableOptions.append(answerOptions[i])
             answerOption = input("What is option " + answerOptions[i] + "?\n")

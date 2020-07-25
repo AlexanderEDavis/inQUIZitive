@@ -1,0 +1,11 @@
+System Architecture 1,https://www.mrdavis.work/j276-craig-n-dave/11-systems-architecture,https://www.mrdavis.work/inquizitive-j276/system-architecture-2,,,
+Processors have a speed measured in…,Hertz,Bits,Bytes,Seconds,a
+Data and Instructions in use are stored in the…,Processor,Embedded Systems,Hard Disk Drive,Main Memory,d
+The typical processor speed of 2016 is around…,16Hz,100MHz,4GHz,300GHz,c
+What doesn’t affect the performance of the computer?,Clock Speed,Number of Cores,Cache Size,The number of instructions in the program,d
+If the number of cores goes up from 2 to 4 – what is the exact effect on performance?,Performance decreases,The maximum number of instructions executed per second doubles,The maximum number of instructions executed per second quadruples,The maximum number of instructions executed per second is halved,b
+If the processing speed goes up from 1GHZ to 4GHZ – what is the exact effect on the performance of the computer?,The maximum number of instructions executed per second doubles,The maximum number of instructions executed per second quadruples,The maximum number of instructions executed per second is halved,The maximum number of instructions executed per second is quartered,b
+If the processing speed goes up from 2GHZ to 4GHZ and the number of cores goes from 2 to 4 – what is the exact effect on the performance of the computer?,The maximum number of instructions executed per second doubles,The maximum number of instructions executed per second quadruples,The maximum number of instructions executed per second is halved,The maximum number of instructions executed per second is quartered,b
+If the processing speed goes from 1GHZ to 4GHZ and the processor is changed from an 8 core to a dual core processor – what is the exact effect on the performance of the computer?,The number of instructions executed per second doubles,The number of instructions executed per second quadruples,The number of instructions executed per second is halved,The number of instructions executed per second stays the same,d
+Firmware in which software and hardware are integrated on a circuit board is often used in what type of system?,Desktop System,Embedded System,Operating System,Point of Sale system,b
+Which is an example of an Embedded System?,Laptops,Tablets,PC's,Washing Machine,d

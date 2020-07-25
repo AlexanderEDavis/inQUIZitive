@@ -1,0 +1,11 @@
+System Architecture 4,https://www.mrdavis.work/j276-craig-n-dave/11-systems-architecture,https://www.mrdavis.work/j276-craig-n-dave/12-memory,,,
+This doesn’t happen during the Fetch part of the cycle:,Address Bus is used,Program Counter increments by one,Arithmetic operations are performed,Main Memory is addressed,c
+This doesn’t happen during the Decode / Execute part of the cycle:,Current Instruction is held in the CIR,Results are held in the Accumulator,Status Register updated,Instructions are transferred from Main Memory,d
+What is held in ROM?,Data currently in use,Bootstrap Loader,Instructions frequently used,Operating System,b
+Carries address of the next instruction that will be fetched,Address Bus,Data Bus,Control Bus,System Bus,a
+What is a property of an Address Bus,Carries Data and Instructions,Uni-Directional,Bi-Directional,Carries control Signals,b
+Which component generates addresses,Processor,Main Memory,Control Unit,Secondary Storage,a
+What is transferred down the data bus?,Data only,Addresses only,Data and Instructions,"Data, Instructions and Addresses",c
+What accurately describes a peripheral?,A component of a computer system,A device that is not directly connected to the CPU,A device that is directly connected to the CPU,A device that is plugged in,b
+This is not a type of secondary storage,Blu-Ray Drive/Disc,Flash Memory,Hard Disk Drive,RAM,d
+What is the purpose of the accumulator?,To perform arithmetic operations,To hold the results of a calculation,To hold the accumulation of instructions that have happened,,b

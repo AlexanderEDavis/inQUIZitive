@@ -1,0 +1,11 @@
+System Architecture 2,https://www.mrdavis.work/j276-craig-n-dave/11-systems-architecture,https://www.mrdavis.work/inquizitive-j276/system-architecture-3,,,
+Processors don’t do the following,Process Data,Execute Instructions,Execute Data,Operate in Hz,c
+The part of a processor in which instructions are executed is known as?,Core,Centre,Execution,Instruction Centre,a
+What acts as an intermediary between the processor and the Main Memory?,Bus,User,Cache,Clock,a
+What is held in cache?,All of the programming instructions,Commonly used instructions and data,Instructions that have been processed,Data that hasn’t been used for a long time,b
+What is Moore’s Law?,Predicted that the number of transistors on a circuit board would double ever year,Computers would be capable of thinking and learning for themselves by 2020,That the number of cores on a processor would double every year,The performance increase of computers would eventually halt in 2020,a
+Firmware refers to,Any hardware that can easily break,A combination of hardware and software,A type of software that is updated to make a computer work better,Hardware used in kitchens,b
+If the processing speed goes up from 2GHZ to 4GHZ and the number of cores goes from 1 to 2 – what is the exact effect on the performance of the computer?,Doubled,Quadrupled,8 x faster,16 x faster,a
+If the processing speed goes up from 2GHZ to 4GHZ and the number of cores goes from 1 to 4 – what is the exact effect on the performance of the computer?,Doubled,Quadrupled,8 x faster,16 x faster,c
+If the processing speed goes up from 1GHZ to 4GHZ and the number of cores goes from 1 to 2 – what is the exact effect on the performance of the computer?,Doubled,Quadrupled,8 x faster,16 x faster,c
+If the processing speed goes up from 1GHZ to 4GHZ and the number of cores goes from 1 to 8 – what is the exact effect on the performance of the computer?,8 x faster,16 x faster,32 x faster,64 x faster,c

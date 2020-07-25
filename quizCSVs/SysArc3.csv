@@ -1,0 +1,11 @@
+System Architecture 3,https://www.mrdavis.work/j276-craig-n-dave/11-systems-architecture,https://www.mrdavis.work/inquizitive-j276/system-architecture-4,,,
+What component holds the address of the next instruction,Memory Address Register,Memory Data Register,Program Counter,Accumulator,c
+Results of calculations are held in this register:,Memory Address Register,Memory Data Register,Program Counter,Accumulator,d
+This holds the instruction/data temporarily after it is brought to the processor from the main memory,Memory Address Register,Memory Data Register,Program Counter,Accumulator,b
+This holds the number of the current instruction being worked on,Memory Address Register,Memory Data Register,Program Counter,Accumulator,b
+This would perform an operation including the word “And”,Arithmetic Logic Unit,Accumulator,Cache,Control Unit,a
+This would send a signal such as “Memory Read”,Arithmetic Logic Unit,Accumulator,Cache,Control Unit,c
+This would perform an operation such as 5+8,Arithmetic Logic Unit,Accumulator,Cache,Control Unit,a
+This would reduce the number of memory/processor transfers,Arithmetic Logic Unit,Accumulator,Cache,Control Unit,c
+This sends signals such as “I/O Read”,Arithmetic Logic Unit,Accumulator,Cache,Control Unit,d
+This sends signals such as “Memory write”,Arithmetic Logic Unit,Accumulator,Cache,Control Unit,d
