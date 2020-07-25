@@ -27,5 +27,6 @@ To create a quiz using the inQUIZitive framework, download the exe file and run 
 
 # Roadmap
 - [x]  ~~Create console based file generator.~~
+- [ ]  Work out how to have multiple correct answers (with checkboxes)
 - [ ]  Create GUI based file generator.
 - [ ]  Design and create home screen for standalone web app (_concept images coming soon_)
