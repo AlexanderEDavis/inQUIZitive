@@ -1,0 +1,14 @@
+C:\Users\AlexanderEDavis\OneDrive - Davis Online\Documents\GitHub\inQUIZitive\inQUIZitive Page Generator\bin\Debug\inQUIZitive Page Generator.exe.config
+C:\Users\AlexanderEDavis\OneDrive - Davis Online\Documents\GitHub\inQUIZitive\inQUIZitive Page Generator\bin\Debug\inQUIZitive Page Generator.exe
+C:\Users\AlexanderEDavis\OneDrive - Davis Online\Documents\GitHub\inQUIZitive\inQUIZitive Page Generator\bin\Debug\inQUIZitive Page Generator.pdb
+C:\Users\AlexanderEDavis\OneDrive - Davis Online\Documents\GitHub\inQUIZitive\inQUIZitive Page Generator\bin\Debug\inQUIZitive Page Generator.xml
+C:\Users\AlexanderEDavis\OneDrive - Davis Online\Documents\GitHub\inQUIZitive\inQUIZitive Page Generator\obj\Debug\inQUIZitive_Page_Generator.frmWelcome.resources
+C:\Users\AlexanderEDavis\OneDrive - Davis Online\Documents\GitHub\inQUIZitive\inQUIZitive Page Generator\obj\Debug\inQUIZitive_Page_Generator.Resources.resources
+C:\Users\AlexanderEDavis\OneDrive - Davis Online\Documents\GitHub\inQUIZitive\inQUIZitive Page Generator\obj\Debug\inQUIZitive Page Generator.vbproj.GenerateResource.cache
+C:\Users\AlexanderEDavis\OneDrive - Davis Online\Documents\GitHub\inQUIZitive\inQUIZitive Page Generator\obj\Debug\inQUIZitive Page Generator.vbproj.CoreCompileInputs.cache
+C:\Users\AlexanderEDavis\OneDrive - Davis Online\Documents\GitHub\inQUIZitive\inQUIZitive Page Generator\obj\Debug\inQUIZitive Page Generator.exe
+C:\Users\AlexanderEDavis\OneDrive - Davis Online\Documents\GitHub\inQUIZitive\inQUIZitive Page Generator\obj\Debug\inQUIZitive Page Generator.xml
+C:\Users\AlexanderEDavis\OneDrive - Davis Online\Documents\GitHub\inQUIZitive\inQUIZitive Page Generator\obj\Debug\inQUIZitive Page Generator.pdb
+C:\Users\AlexanderEDavis\OneDrive - Davis Online\Documents\GitHub\inQUIZitive\inQUIZitive Page Generator\obj\Debug\inQUIZitive_Page_Generator.frmManualEntry.resources
+C:\Users\AlexanderEDavis\OneDrive - Davis Online\Documents\GitHub\inQUIZitive\inQUIZitive Page Generator\obj\Debug\inQUIZitive Page Generator.vbprojAssemblyReference.cache
+C:\Users\AlexanderEDavis\OneDrive - Davis Online\Documents\GitHub\inQUIZitive\inQUIZitive Page Generator\obj\Debug\inQUIZitive_Page_Generator.frmCSVImport.resources
