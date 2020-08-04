@@ -1,0 +1,11 @@
+Memory 1,https://www.mrdavis.work/j276-craig-n-dave/12-memory,https://www.mrdavis.work/inquizitive-j276/memory-2,,,
+This is volatile storage,ROM,RAM,Secondary Storage,Hard Disk,b
+This contains the BIOS (Boot-up program),ROM,RAM,Cache,Hard Disk,a
+You can write data more than once to this device,CD ROM,ROM,RAM,DVD+R,b
+Which statement is true?,RAM is part of the hard disk,ROM is volatile,RAM stores programs/data used by the CPU,ROM contains is short for RAM,c
+A gaming computer is “thrashing” the disk. Why?,The game takes up too much space,The game uses high resolution graphics,The screen uses too many colours,The processor is short of RAM,d
+Which statement is true?,RAM is non volatile,RAM has a slow access time relative to other storage devices,RAM can be static or Dynamic (SRAM/DRAM),RAM holds the BIOS,c
+What is firmware?,Data in RAM,A program in ROM,Any hardware,A program in cache,b
+What is the difference between SRAM and DRAM,DRAM is physically bigger,DRAM is faster,SRAM needs its data to be refreshed otherwise it loses it,DRAM needs its data to be refreshed otherwise it loses it,d
+What is the fastest data storage in a computer,Registers,RAM,HDD,ROM,a
+How does data/ instructions move between the CPU and RAM,ROM,Address and data bus,Address bus,Data bus,b
