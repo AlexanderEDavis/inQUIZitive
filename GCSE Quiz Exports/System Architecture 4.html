@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="https://quiz.mrdavis.work/quiz.css" />
+</head>
+<body>
+<h1><img style="float:left" src="https://quiz.mrdavis.work/icon.png" width="25" height="25" alt=""/>Quiz on System Architecture 4<img style="float:right" src="https://quiz.mrdavis.work/icon.png" width="25" height="25" alt=""/></h1><div class="quiz-container">
+  <div id="quiz"></div>
+</div>
+<button id="previous">Previous Question</button>
+<button id="next">Next Question</button>
+<button id="submit">Submit Quiz</button>
+<div id="results"></div>
+</body>
+<script>(function(){
+  // Functions
+  function buildQuiz(){
+    // variable to store the HTML output
+    const output = [];
+
+    // for each question...
+    myQuestions.forEach(
+      (currentQuestion, questionNumber) => {
+
+        // variable to store the list of possible answers
+        const answers = [];
+
+        // and for each available answer...
+        for(letter in currentQuestion.answers){
+
+          // ...add an HTML radio button
+          answers.push(
+            `<label>
+              <input type="radio" name="question${questionNumber}" value="${letter}">
+              ${letter} :
+              ${currentQuestion.answers[letter]}
+            </label>`
+          );
+        }
+
+        // add this question and its answers to the output
+        output.push(
+          `<div class="slide">
+            <div class="question"> ${currentQuestion.question} </div>
+            <div class="answers"> ${answers.join("")} </div>
+          </div>`
+        );
+      }
+    );
+
+    // finally combine our output list into one string of HTML and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+  function showResults(){
+
+    // gather answer containers from our quiz
+    const answerContainers = quizContainer.querySelectorAll('.answers');
+
+    // keep track of user's answers
+    let numCorrect = 0;
+
+    // for each question...
+    myQuestions.forEach( (currentQuestion, questionNumber) => {
+
+      // find selected answer
+      const answerContainer = answerContainers[questionNumber];
+      const selector = `input[name=question${questionNumber}]:checked`;
+      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+      // if answer is correct
+      if(userAnswer === currentQuestion.correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+
+        // color the answers green
+        answerContainers[questionNumber].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[questionNumber].style.color = 'red';
+      }
+    });
+
+    // show number of correct answers out of total
+    var reviseText = "Revision Video"
+    if (numCorrect<=(myQuestions.length/2)) {
+      var revise = reviseText.link("https://www.mrdavis.work/j276-craig-n-dave/11-systems-architecture");
+      resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}<br>Watch this video before trying the test again: ${revise}`;
+    } else {
+      var revise = reviseText.link("https://www.mrdavis.work/j276-craig-n-dave/12-memory");
+      resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}<br>Watch this video before trying the next test: ${revise}`;
+    }
+
+  }
+
+  function showSlide(n) {
+    slides[currentSlide].classList.remove('active-slide');
+    slides[n].classList.add('active-slide');
+    currentSlide = n;
+    if(currentSlide === 0){
+      previousButton.style.display = 'none';
+    }
+    else{
+      previousButton.style.display = 'inline-block';
+    }
+    if(currentSlide === slides.length-1){
+      nextButton.style.display = 'none';
+      submitButton.style.display = 'inline-block';
+    }
+    else{
+      nextButton.style.display = 'inline-block';
+      submitButton.style.display = 'none';
+    }
+  }
+
+  function showNextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  function showPreviousSlide() {
+    showSlide(currentSlide - 1);
+  }
+
+  // Variables
+  const quizContainer = document.getElementById('quiz');
+  const resultsContainer = document.getElementById('results');
+  const submitButton = document.getElementById('submit');
+  const myQuestions = [
+    {
+      question: "This doesn’t happen during the Fetch part of the cycle:",
+      answers: {
+        a: "Address Bus is used",
+        b: "Program Counter increments by one",
+        c: "Arithmetic operations are performed",
+        d: "Main Memory is addressed"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "This doesn’t happen during the Decode / Execute part of the cycle:",
+      answers: {
+        a: "Current Instruction is held in the CIR",
+        b: "Results are held in the Accumulator",
+        c: "Status Register updated",
+        d: "Instructions are transferred from Main Memory"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "What is held in ROM?",
+      answers: {
+        a: "Data currently in use",
+        b: "Bootstrap Loader",
+        c: "Instructions frequently used",
+        d: "Operating System"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "Carries address of the next instruction that will be fetched",
+      answers: {
+        a: "Address Bus",
+        b: "Data Bus",
+        c: "Control Bus",
+        d: "System Bus"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "What is a property of an Address Bus",
+      answers: {
+        a: "Carries Data and Instructions",
+        b: "Uni-Directional",
+        c: "Bi-Directional",
+        d: "Carries control Signals"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "Which component generates addresses",
+      answers: {
+        a: "Processor",
+        b: "Main Memory",
+        c: "Control Unit",
+        d: "Secondary Storage"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "What is transferred down the data bus?",
+      answers: {
+        a: "Data only",
+        b: "Addresses only",
+        c: "Data and Instructions",
+        d: "Data, Instructions and Addresses"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "What accurately describes a peripheral?",
+      answers: {
+        a: "A component of a computer system",
+        b: "A device that is not directly connected to the CPU",
+        c: "A device that is directly connected to the CPU",
+        d: "A device that is plugged in"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "This is not a type of secondary storage",
+      answers: {
+        a: "Blu-Ray Drive/Disc",
+        b: "Flash Memory",
+        c: "Hard Disk Drive",
+        d: "RAM"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "What is the purpose of the accumulator?",
+      answers: {
+        a: "To perform arithmetic operations",
+        b: "To hold the results of a calculation",
+        c: "To hold the accumulation of instructions that have happened",
+
+      },
+      correctAnswer: "b"
+    }
+
+  ];
+
+  // Kick things off
+  buildQuiz();
+
+  // Pagination
+  const previousButton = document.getElementById("previous");
+  const nextButton = document.getElementById("next");
+  const slides = document.querySelectorAll(".slide");
+  let currentSlide = 0;
+
+  // Show the first slide
+  showSlide(currentSlide);
+
+  // Event listeners
+  submitButton.addEventListener('click', showResults);
+  previousButton.addEventListener("click", showPreviousSlide);
+  nextButton.addEventListener("click", showNextSlide);
+})();
+</script>
+</html>
