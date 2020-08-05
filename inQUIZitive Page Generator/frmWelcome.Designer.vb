@@ -68,6 +68,7 @@ Partial Class frmWelcome
         Me.Controls.Add(Me.btnYes)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmWelcome"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "inQUIZitive Page Generator - Home"
         Me.ResumeLayout(False)
 

@@ -32,7 +32,7 @@ Namespace My
         
         <Global.System.Diagnostics.DebuggerStepThroughAttribute()>  _
         Protected Overrides Sub OnCreateMainForm()
-            Me.MainForm = Global.inQUIZitive_Page_Generator.frmWelcome
+            Me.MainForm = Global.inQUIZitive_Page_Generator.frmCSVImport
         End Sub
     End Class
 End Namespace

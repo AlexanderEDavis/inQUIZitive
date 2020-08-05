@@ -43,6 +43,7 @@ Partial Class frmManualEntry
         Me.Controls.Add(Me.btnHome)
         Me.Icon = CType(resources.GetObject("$this.Icon"), System.Drawing.Icon)
         Me.Name = "frmManualEntry"
+        Me.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen
         Me.Text = "inQUIZitive Page Generator - Manual Entry"
         Me.ResumeLayout(False)
 

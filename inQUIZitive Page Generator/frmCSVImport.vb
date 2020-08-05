@@ -34,9 +34,139 @@ Public Class frmCSVImport
         Dim export As System.IO.StreamWriter
         export = My.Computer.FileSystem.OpenTextFileWriter(newFile, True)
         ' Add text to the file.
-        Dim info As String = "<!DOCTYPE html>" & vbCrLf & "<html>" & vbCrLf & "<head>" & vbCrLf & "<meta charset=" & Chr(34) & "UTF-8" & Chr(34) & ">" & vbCrLf & "<link rel=" & Chr(34) & "stylesheet" & Chr(34) & " type=" & Chr(34) & "text/css" & Chr(34) & " href=" & Chr(34) & "https://quiz.mrdavis.work/quiz.css" & Chr(34) & " />" & vbCrLf & "</head>" & vbCrLf & "<body>" & vbCrLf & "<h1><img style=" & Chr(34) & "float: Left" & Chr(34) & " src=" & Chr(34) & "https://quiz.mrdavis.work/icon.png" & Chr(34) & " width=" & Chr(34) & "25" & Chr(34) & " height=" & Chr(34) & "25" & Chr(34) & " alt=" & Chr(34) & "" & Chr(34) & "/>Quiz on " + FileArray(0)(0) + "<img style=" & Chr(34) & "float:right" & Chr(34) & " src=" & Chr(34) & "https://quiz.mrdavis.work/icon.png" & Chr(34) & " width=" & Chr(34) & "25" & Chr(34) & " height=" & Chr(34) & "25" & Chr(34) & " alt=" & Chr(34) & "" & Chr(34) & "/></h1>" & vbCrLf & "<div class=" & Chr(34) & "quiz-container" & Chr(34) & ">" & vbCrLf & "  <div id=" & Chr(34) & "quiz" & Chr(34) & "></div>" & vbCrLf & "</div>" & vbCrLf & "<button id=" & Chr(34) & "previous" & Chr(34) & ">Previous Question</button>" & vbCrLf & "<button id=" & Chr(34) & "next" & Chr(34) & ">Next Question</button>" & vbCrLf & "<button id=" & Chr(34) & "submit" & Chr(34) & ">Submit Quiz</button>" & vbCrLf & "<div id=" & Chr(34) & "results" & Chr(34) & "></div>" & vbCrLf & "</body>" & vbCrLf & "<script>(function(){" & vbCrLf & "  // Functions" & vbCrLf & "  function buildQuiz(){" & vbCrLf & "    // variable to store the HTML output" & vbCrLf & "    const output = [];" & vbCrLf & "" & vbCrLf & "    // for each question..." & vbCrLf & "    myQuestions.forEach(" & vbCrLf & "      (currentQuestion, questionNumber) => {" & vbCrLf & "" & vbCrLf & "        // variable to store the list of possible answers" & vbCrLf & "        const answers = [];" & vbCrLf & "" & vbCrLf & "        // and for each available answer..." & vbCrLf & "        for(letter in currentQuestion.answers){" & vbCrLf & "" & vbCrLf & "          // ...add an HTML radio button" & vbCrLf & "          answers.push(" & vbCrLf & "            `<label>" & vbCrLf & "              <input type=" & Chr(34) & "radio" & Chr(34) & " name=" & Chr(34) & "question${questionNumber}" & Chr(34) & " value=" & Chr(34) & "${letter}" & Chr(34) & ">" & vbCrLf & "              ${letter} :" & vbCrLf & "              ${currentQuestion.answers[letter]}" & vbCrLf & "            </label>`" & vbCrLf & "          );" & vbCrLf & "        }" & vbCrLf & "" & vbCrLf & "        // add this question and its answers to the output" & vbCrLf & "        output.push(" & vbCrLf & "          `<div class=" & Chr(34) & "slide" & Chr(34) & ">" & vbCrLf & "            <div class=" & Chr(34) & "question" & Chr(34) & "> ${currentQuestion.question} </div>" & vbCrLf & "            <div class=" & Chr(34) & "answers" & Chr(34) & "> ${answers.join(" & Chr(34) & "" & Chr(34) & ")} </div>" & vbCrLf & "          </div>`" & vbCrLf & "        );" & vbCrLf & "      }" & vbCrLf & "    );" & vbCrLf & "" & vbCrLf & "    // finally combine our output list into one string of HTML and put it on the page" & vbCrLf & "    quizContainer.innerHTML = output.join('');" & vbCrLf & "  }" & vbCrLf & "" & vbCrLf & "  function showResults(){" & vbCrLf & "" & vbCrLf & "    // gather answer containers from our quiz" & vbCrLf & "    const answerContainers = quizContainer.querySelectorAll('.answers');" & vbCrLf & "" & vbCrLf & "    // keep track of user's answers" & vbCrLf & "    let numCorrect = 0;" & vbCrLf & "" & vbCrLf & "    // for each question..." & vbCrLf & "    myQuestions.forEach( (currentQuestion, questionNumber) => {" & vbCrLf & "" & vbCrLf & "      // find selected answer" & vbCrLf & "      const answerContainer = answerContainers[questionNumber];" & vbCrLf & "      const selector = `input[name=question${questionNumber}]:checked`;" & vbCrLf & "      const userAnswer = (answerContainer.querySelector(selector) || {}).value;" & vbCrLf & "" & vbCrLf & "      // if answer is correct" & vbCrLf & "      if(userAnswer === currentQuestion.correctAnswer){" & vbCrLf & "        // add to the number of correct answers" & vbCrLf & "        numCorrect++;" & vbCrLf & "" & vbCrLf & "        // color the answers green" & vbCrLf & "        answerContainers[questionNumber].style.color = 'lightgreen';" & vbCrLf & "      }" & vbCrLf & "      // if answer is wrong or blank" & vbCrLf & "      else{" & vbCrLf & "        // color the answers red" & vbCrLf & "        answerContainers[questionNumber].style.color = 'red';" & vbCrLf & "      }" & vbCrLf & "    });" & vbCrLf & "" & vbCrLf & "    // show number of correct answers out of total" & vbCrLf & "    var reviseText = " & Chr(34) & "Revision Video" & Chr(34) & "" & vbCrLf & "    if (numCorrect<=(myQuestions.length/2)) {" & vbCrLf & "      var revise = reviseText.link(" & Chr(34) & FileArray(0)(1) & ");" & vbCrLf & "      resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}<br>Watch this video before trying the test again: ${revise}`;" & vbCrLf & "    } else {" & vbCrLf & "      var revise = reviseText.link(" & Chr(34) & "" + FileArray(0)(2) + "" & Chr(34) & ");" & vbCrLf & "      resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}<br>Watch this video before trying the next test: ${revise}`;" & vbCrLf & "    }" & vbCrLf & "" & vbCrLf & "  }" & vbCrLf & "" & vbCrLf & "  function showSlide(n) {" & vbCrLf & "    slides[currentSlide].classList.remove('active-slide');" & vbCrLf & "    slides[n].classList.add('active-slide');" & vbCrLf & "    currentSlide = n;" & vbCrLf & "    if(currentSlide === 0){" & vbCrLf & "      previousButton.style.display = 'none';" & vbCrLf & "    }" & vbCrLf & "    else{" & vbCrLf & "      previousButton.style.display = 'inline-block';" & vbCrLf & "    }" & vbCrLf & "    if(currentSlide === slides.length-1){" & vbCrLf & "      nextButton.style.display = 'none';" & vbCrLf & "      submitButton.style.display = 'inline-block';" & vbCrLf & "    }" & vbCrLf & "    else{" & vbCrLf & "      nextButton.style.display = 'inline-block';" & vbCrLf & "      submitButton.style.display = 'none';" & vbCrLf & "    }" & vbCrLf & "  }" & vbCrLf & "" & vbCrLf & "  function showNextSlide() {" & vbCrLf & "    showSlide(currentSlide + 1);" & vbCrLf & "  }" & vbCrLf & "" & vbCrLf & "  function showPreviousSlide() {" & vbCrLf & "    showSlide(currentSlide - 1);" & vbCrLf & "  }" & vbCrLf & "" & vbCrLf & "  // Variables" & vbCrLf & "  const quizContainer = document.getElementById('quiz');" & vbCrLf & "  const resultsContainer = document.getElementById('results');" & vbCrLf & "  const submitButton = document.getElementById('submit');" & vbCrLf & "  const myQuestions = [" & vbCrLf & ""
-        export.Write(info)
-        Dim dataString As String = ""
+        export.WriteLine("<!DOCTYPE html>")
+        export.WriteLine("<html>")
+        export.WriteLine("<head>")
+        export.WriteLine("<meta charset=""UTF-8"">")
+        export.WriteLine("<link rel=""stylesheet"" type=""text/css"" href=""https://quiz.mrdavis.work/quiz.css"" />")
+        export.WriteLine("</head>")
+        export.WriteLine("<body>")
+        export.WriteLine("<h1><img style=""float:left"" src=""https://quiz.mrdavis.work/icon.png"" width=""25"" height=""25"" alt=""""/>Quiz on " + FileArray(0)(0) + "<img style=""float:right"" src=""https://quiz.mrdavis.work/icon.png"" width=""25"" height=""25"" alt=""""/></h1>")
+        export.WriteLine("<div class=""quiz-container"">")
+        export.WriteLine("<div id=""quiz""></div>")
+        export.WriteLine("</div>")
+        export.WriteLine("<button id=""previous"">Previous Question</button>")
+        export.WriteLine("<button id=""Next"">Next Question</button>")
+        export.WriteLine("<button id=""submit"">Submit Quiz</button>")
+        export.WriteLine("<div id =""results"" ></div>")
+        export.WriteLine("</body>")
+        export.WriteLine("<script>(function() {")
+        export.WriteLine("// Functions ")
+        export.WriteLine("function buildQuiz(){")
+        export.WriteLine("    // variable To store the HTML output")
+        export.WriteLine("    const output = [];")
+        export.WriteLine("")
+        export.WriteLine("    // For Each question...")
+        export.WriteLine("    myQuestions.forEach(")
+        export.WriteLine("      (currentQuestion, questionNumber) => {")
+        export.WriteLine("")
+        export.WriteLine("        // variable To store the list Of possible answers")
+        export.WriteLine("        const answers = [];")
+        export.WriteLine("")
+        export.WriteLine("        // And For Each available answer...")
+        export.WriteLine("        for(letter in currentQuestion.answers){")
+        export.WriteLine("")
+        export.WriteLine("          // ...add an HTML radio button")
+        export.WriteLine("          answers.push(")
+        export.WriteLine("            `<label>")
+        export.WriteLine("              <input type=""radio"" name=""question${questionNumber}"" value=""${letter}"">")
+        export.WriteLine("              ${letter} : ")
+        export.WriteLine("              ${currentQuestion.answers[letter]}")
+        export.WriteLine("            </label>`")
+        export.WriteLine("          );")
+        export.WriteLine("        }")
+        export.WriteLine("")
+        export.WriteLine("        // add this question And its answers to the output")
+        export.WriteLine("        output.push(")
+        export.WriteLine("          `<div class=""slide"">")
+        export.WriteLine("            <div class=""question""> ${currentQuestion.question} </div>")
+        export.WriteLine("            <div class=""answers""> ${answers.join("""")} </div>")
+        export.WriteLine("          </div>`")
+        export.WriteLine("        );")
+        export.WriteLine("      }")
+        export.WriteLine("    );")
+        export.WriteLine("")
+        export.WriteLine("    // finally combine our output list into one string of HTML And put it on the page")
+        export.WriteLine("    quizContainer.innerHTML = output.join('');")
+        export.WriteLine("  }")
+        export.WriteLine("")
+        export.WriteLine("  function showResults(){")
+        export.WriteLine("")
+        export.WriteLine("    // gather answer containers from our quiz")
+        export.WriteLine("    const answerContainers = quizContainer.querySelectorAll('.answers');")
+        export.WriteLine("")
+        export.WriteLine("    // keep track of user's answers")
+        export.WriteLine("    let numCorrect = 0;")
+        export.WriteLine("")
+        export.WriteLine("    // for each question...")
+        export.WriteLine("    myQuestions.forEach( (currentQuestion, questionNumber) => {")
+        export.WriteLine("")
+        export.WriteLine("      // find selected answer")
+        export.WriteLine("      const answerContainer = answerContainers[questionNumber];")
+        export.WriteLine("      const selector = `input[name=question${questionNumber}]:checked`;")
+        export.WriteLine("      const userAnswer = (answerContainer.querySelector(selector) || {}).value;")
+        export.WriteLine("")
+        export.WriteLine("      // if answer is correct")
+        export.WriteLine("      if(userAnswer === currentQuestion.correctAnswer){")
+        export.WriteLine("        // add to the number of correct answers")
+        export.WriteLine("        numCorrect++;")
+        export.WriteLine("")
+        export.WriteLine("        // color the answers green")
+        export.WriteLine("        answerContainers[questionNumber].style.color = 'lightgreen';")
+        export.WriteLine("      }")
+        export.WriteLine("      // if answer is wrong or blank")
+        export.WriteLine("      else{")
+        export.WriteLine("        // color the answers red")
+        export.WriteLine("        answerContainers[questionNumber].style.color = 'red';")
+        export.WriteLine("      }")
+        export.WriteLine("    });")
+        export.WriteLine("")
+        export.WriteLine("    // show number of correct answers out of total")
+        export.WriteLine("    var reviseText = ""Revision Video""")
+        export.WriteLine("    if (numCorrect<=(myQuestions.length/2)) {")
+        export.WriteLine("      var revise = reviseText.link(""" + FileArray(0)(1) + """);")
+        export.WriteLine("      resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}<br>Watch this video before trying the test again: ${revise}`;")
+        export.WriteLine("    } else {")
+        export.WriteLine("")
+        export.WriteLine("      var revise = reviseText.link(""" + FileArray(0)(2) + """);")
+        export.WriteLine("      resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}<br>Watch this video before trying the next test: ${revise}`;")
+        export.WriteLine("    }")
+        export.WriteLine("")
+        export.WriteLine("  }")
+        export.WriteLine("")
+        export.WriteLine("  function showSlide(n) {")
+        export.WriteLine("    slides[currentSlide].classList.remove('active-slide');")
+        export.WriteLine("    slides[n].classList.add('active-slide');")
+        export.WriteLine("    currentSlide = n;")
+        export.WriteLine("    if(currentSlide === 0){")
+        export.WriteLine("      previousButton.style.display = 'none';")
+        export.WriteLine("    }")
+        export.WriteLine("    else{")
+        export.WriteLine("      previousButton.style.display = 'inline-block';")
+        export.WriteLine("    }")
+        export.WriteLine("    if(currentSlide === slides.length-1){")
+        export.WriteLine("      nextButton.style.display = 'none';")
+        export.WriteLine("      submitButton.style.display = 'inline-block';")
+        export.WriteLine("    }")
+        export.WriteLine("    else{")
+        export.WriteLine("      nextButton.style.display = 'inline-block';")
+        export.WriteLine("      submitButton.style.display = 'none';")
+        export.WriteLine("    }")
+        export.WriteLine("  }")
+        export.WriteLine("")
+        export.WriteLine("  function showNextSlide() {")
+        export.WriteLine("    showSlide(currentSlide + 1);")
+        export.WriteLine("  }")
+        export.WriteLine("")
+        export.WriteLine("  function showPreviousSlide() {")
+        export.WriteLine("    showSlide(currentSlide - 1);")
+        export.WriteLine("  }")
+        export.WriteLine("")
+        export.WriteLine("  // Variables")
+        export.WriteLine("  const quizContainer = document.getElementById('quiz');")
+        export.WriteLine("  const resultsContainer = document.getElementById('results');")
+        export.WriteLine("  const submitButton = document.getElementById('submit');")
+        export.WriteLine("  const myQuestions = [")
         Dim questionEntry
         questionEntry = True
         Dim questionNumber
@@ -46,31 +176,58 @@ Public Class frmCSVImport
         questionNumber = 0
         While questionEntry = True
             questionNumber = questionNumber + 1
-            dataString = dataString + "    {" & vbCrLf & "      question: " & Chr(34) & FileArray(questionNumber)(0) & ": " & Chr(34) & vbCrLf & "      answers: {" & vbCrLf
-            numAnswer = FileArray(questionNumber).Length() - 2
-            For i As Integer = 1 To (numAnswer + 1)
+            export.WriteLine("    {")
+            export.WriteLine("      question: """ + FileArray(questionNumber)(0) + """,")
+            export.WriteLine("      answers: {")
+            numAnswer = FileArray(questionNumber).Length() - 1
+            For i As Integer = 1 To (numAnswer)
                 If FileArray(questionNumber)(i) = "" Then
 
                 Else
-                    dataString = dataString & "        " & answerOptions(i) & ": " & Chr(34) & "" & FileArray(questionNumber)(i) & "" & Chr(34)
+                    export.Write("        " + answerOptions(i) + ": """ + FileArray(questionNumber)(i) + """")
                 End If
                 If i < numAnswer Then
-                    dataString = dataString + "," & vbCrLf
+                    export.WriteLine(",")
                 ElseIf i = numAnswer Then
-                    dataString = dataString & vbCrLf & "      }," & vbCrLf
-                    dataString = dataString & "      correctAnswer: " & Chr(34) & FileArray(questionNumber)(FileArray(questionNumber).Length - 1) + " \ " & vbCrLf
-                End If
-                quizLength = FileArray.Length - 1
-                If questionNumber = quizLength Then
-                    dataString = dataString & "    }" & vbCrLf & "" & vbCrLf & "  ];" & vbCrLf & "" & vbCrLf & "  // Kick things off" & vbCrLf & "  buildQuiz();" & vbCrLf & "" & vbCrLf & "  // Pagination" & vbCrLf & "  const previousButton = document.getElementById(" & Chr(34) & "previous" & Chr(34) & ");" & vbCrLf & "  const nextButton = document.getElementById(" & Chr(34) & "Next" & Chr(34) & ");" & vbCrLf & "  const slides = document.querySelectorAll(" & Chr(34) & ".slide" & Chr(34) & ");" & vbCrLf & "  let currentSlide = 0;" & vbCrLf & "" & vbCrLf & "  // Show the first slide" & vbCrLf & "  showSlide(currentSlide);" & vbCrLf & "" & vbCrLf & "  // Event listeners" & vbCrLf & "  submitButton.addEventListener('click', showResults);" & vbCrLf & "  previousButton.addEventListener(" & Chr(34) & "click" & Chr(34) & ", showPreviousSlide);" & vbCrLf & "  nextButton.addEventListener(" & Chr(34) & "click" & Chr(34) & ", showNextSlide);" & vbCrLf & "})();" & vbCrLf & "</script>" & vbCrLf & "</html>"
-                    questionEntry = False
-                Else
-                    dataString = dataString & "    }," & vbCrLf
+                    export.WriteLine("")
+                    export.WriteLine("      },")
+                    export.WriteLine("      correctAnswer: """ + FileArray(questionNumber)(FileArray(questionNumber).Length - 1) + """")
                 End If
             Next
+            quizLength = FileArray.Length - 1
+            If questionNumber = quizLength Then
+                export.WriteLine("    }")
+                export.WriteLine("")
+                export.WriteLine("  ];")
+                export.WriteLine("")
+                export.WriteLine("  // Kick things off")
+                export.WriteLine("  buildQuiz();")
+                export.WriteLine("")
+                export.WriteLine("  // Pagination")
+                export.WriteLine("  const previousButton = document.getElementById(""previous"");")
+                export.WriteLine("  const nextButton = document.getElementById(""Next"");")
+                export.WriteLine("  const slides = document.querySelectorAll("".slide"");")
+                export.WriteLine("  let currentSlide = 0;")
+                export.WriteLine("")
+                export.WriteLine("  // Show the first slide")
+                export.WriteLine("  showSlide(currentSlide);")
+                export.WriteLine("")
+                export.WriteLine("  // Event listeners")
+                export.WriteLine("  submitButton.addEventListener('click', showResults);")
+                export.WriteLine("  previousButton.addEventListener(""click"", showPreviousSlide);")
+                export.WriteLine("  nextButton.addEventListener(""click"", showNextSlide);")
+                export.WriteLine("})();")
+                export.WriteLine("</script>")
+                export.WriteLine("</html>")
+                questionEntry = False
+            Else
+                export.WriteLine("    },")
+                End If
         End While
-        export.Write(dataString)
         export.Close()
-        MsgBox("File Creation Complete", 0, "Complete")
+        Dim dresult As DialogResult = MessageBox.Show("File Creation Complete", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information)
+        If (dresult = DialogResult.OK) Then
+            Process.Start(newFile)
+        End If
     End Sub
 End Class
