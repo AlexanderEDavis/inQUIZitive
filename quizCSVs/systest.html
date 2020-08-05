@@ -1,0 +1,795 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="https://quiz.mrdavis.work/quiz.css" />
+</head>
+<body>
+<h1><img style="float:left" src="https://quiz.mrdavis.work/icon.png" width="25" height="25" alt=""/>Quiz on System Architecture 1<img style="float:right" src="https://quiz.mrdavis.work/icon.png" width="25" height="25" alt=""/></h1>
+<div class="quiz-container">
+<div id="quiz"></div>
+</div>
+<button id="previous">Previous Question</button>
+<button id="Next">Next Question</button>
+<button id="submit">Submit Quiz</button>
+<div id ="results" ></div>
+</body>
+<script>(function() {
+// Functions 
+function buildQuiz(){
+    // variable To store the HTML output
+    const output = [];
+
+    // For Each question...
+    myQuestions.forEach(
+      (currentQuestion, questionNumber) => {
+
+        // variable To store the list Of possible answers
+        const answers = [];
+
+        // And For Each available answer...
+        for(letter in currentQuestion.answers){
+
+          // ...add an HTML radio button
+          answers.push(
+            `<label>
+              <input type="radio" name="question${questionNumber}" value="${letter}">
+              ${letter} : 
+              ${currentQuestion.answers[letter]}
+            </label>`
+          );
+        }
+
+        // add this question And its answers to the output
+        output.push(
+          `<div class="slide">
+            <div class="question"> ${currentQuestion.question} </div>
+            <div class="answers"> ${answers.join("")} </div>
+          </div>`
+        );
+      }
+    );
+
+    // finally combine our output list into one string of HTML And put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+  function showResults(){
+
+    // gather answer containers from our quiz
+    const answerContainers = quizContainer.querySelectorAll('.answers');
+
+    // keep track of user's answers
+    let numCorrect = 0;
+
+    // for each question...
+    myQuestions.forEach( (currentQuestion, questionNumber) => {
+
+      // find selected answer
+      const answerContainer = answerContainers[questionNumber];
+      const selector = `input[name=question${questionNumber}]:checked`;
+      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+      // if answer is correct
+      if(userAnswer === currentQuestion.correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+
+        // color the answers green
+        answerContainers[questionNumber].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[questionNumber].style.color = 'red';
+      }
+    });
+
+    // show number of correct answers out of total
+    var reviseText = "Revision Video"
+    if (numCorrect<=(myQuestions.length/2)) {
+      var revise = reviseText.link("https://www.mrdavis.work/j276-craig-n-dave/11-systems-architecture");
+      resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}<br>Watch this video before trying the test again: ${revise}`;
+    } else {
+
+      var revise = reviseText.link("https://www.mrdavis.work/inquizitive-j276/system-architecture-2");
+      resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}<br>Watch this video before trying the next test: ${revise}`;
+    }
+
+  }
+
+  function showSlide(n) {
+    slides[currentSlide].classList.remove('active-slide');
+    slides[n].classList.add('active-slide');
+    currentSlide = n;
+    if(currentSlide === 0){
+      previousButton.style.display = 'none';
+    }
+    else{
+      previousButton.style.display = 'inline-block';
+    }
+    if(currentSlide === slides.length-1){
+      nextButton.style.display = 'none';
+      submitButton.style.display = 'inline-block';
+    }
+    else{
+      nextButton.style.display = 'inline-block';
+      submitButton.style.display = 'none';
+    }
+  }
+
+  function showNextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  function showPreviousSlide() {
+    showSlide(currentSlide - 1);
+  }
+
+  // Variables
+  const quizContainer = document.getElementById('quiz');
+  const resultsContainer = document.getElementById('results');
+  const submitButton = document.getElementById('submit');
+  const myQuestions = [
+    {
+      question: "Processors have a speed measured in…",
+      answers: {
+        a: "Hertz",
+        b: "Bits",
+        c: "Bytes",
+        d: "Seconds",
+        e: "a"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "Data and Instructions in use are stored in the…",
+      answers: {
+        a: "Processor",
+        b: "Embedded Systems",
+        c: "Hard Disk Drive",
+        d: "Main Memory",
+        e: "d"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "The typical processor speed of 2016 is around…",
+      answers: {
+        a: "16Hz",
+        b: "100MHz",
+        c: "4GHz",
+        d: "300GHz",
+        e: "c"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "What doesn’t affect the performance of the computer?",
+      answers: {
+        a: "Clock Speed",
+        b: "Number of Cores",
+        c: "Cache Size",
+        d: "The number of instructions in the program",
+        e: "d"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "If the number of cores goes up from 2 to 4 – what is the exact effect on performance?",
+      answers: {
+        a: "Performance decreases",
+        b: "The maximum number of instructions executed per second doubles",
+        c: "The maximum number of instructions executed per second quadruples",
+        d: "The maximum number of instructions executed per second is halved",
+        e: "b"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "If the processing speed goes up from 1GHZ to 4GHZ – what is the exact effect on the performance of the computer?",
+      answers: {
+        a: "The maximum number of instructions executed per second doubles",
+        b: "The maximum number of instructions executed per second quadruples",
+        c: "The maximum number of instructions executed per second is halved",
+        d: "The maximum number of instructions executed per second is quartered",
+        e: "b"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "If the processing speed goes up from 2GHZ to 4GHZ and the number of cores goes from 2 to 4 – what is the exact effect on the performance of the computer?",
+      answers: {
+        a: "The maximum number of instructions executed per second doubles",
+        b: "The maximum number of instructions executed per second quadruples",
+        c: "The maximum number of instructions executed per second is halved",
+        d: "The maximum number of instructions executed per second is quartered",
+        e: "b"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "If the processing speed goes from 1GHZ to 4GHZ and the processor is changed from an 8 core to a dual core processor – what is the exact effect on the performance of the computer?",
+      answers: {
+        a: "The number of instructions executed per second doubles",
+        b: "The number of instructions executed per second quadruples",
+        c: "The number of instructions executed per second is halved",
+        d: "The number of instructions executed per second stays the same",
+        e: "d"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "Firmware in which software and hardware are integrated on a circuit board is often used in what type of system?",
+      answers: {
+        a: "Desktop System",
+        b: "Embedded System",
+        c: "Operating System",
+        d: "Point of Sale system",
+        e: "b"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "Which is an example of an Embedded System?",
+      answers: {
+        a: "Laptops",
+        b: "Tablets",
+        c: "PC's",
+        d: "Washing Machine",
+        e: "d"
+      },
+      correctAnswer: "d"
+    }
+
+  ];
+
+  // Kick things off
+  buildQuiz();
+
+  // Pagination
+  const previousButton = document.getElementById("previous");
+  const nextButton = document.getElementById("Next");
+  const slides = document.querySelectorAll(".slide");
+  let currentSlide = 0;
+
+  // Show the first slide
+  showSlide(currentSlide);
+
+  // Event listeners
+  submitButton.addEventListener('click', showResults);
+  previousButton.addEventListener("click", showPreviousSlide);
+  nextButton.addEventListener("click", showNextSlide);
+})();
+</script>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="https://quiz.mrdavis.work/quiz.css" />
+</head>
+<body>
+<h1><img style="float:left" src="https://quiz.mrdavis.work/icon.png" width="25" height="25" alt=""/>Quiz on Memory 1<img style="float:right" src="https://quiz.mrdavis.work/icon.png" width="25" height="25" alt=""/></h1>
+<div class="quiz-container">
+<div id="quiz"></div>
+</div>
+<button id="previous">Previous Question</button>
+<button id="Next">Next Question</button>
+<button id="submit">Submit Quiz</button>
+<div id ="results" ></div>
+</body>
+<script>(function() {
+// Functions 
+function buildQuiz(){
+    // variable To store the HTML output
+    const output = [];
+
+    // For Each question...
+    myQuestions.forEach(
+      (currentQuestion, questionNumber) => {
+
+        // variable To store the list Of possible answers
+        const answers = [];
+
+        // And For Each available answer...
+        for(letter in currentQuestion.answers){
+
+          // ...add an HTML radio button
+          answers.push(
+            `<label>
+              <input type="radio" name="question${questionNumber}" value="${letter}">
+              ${letter} : 
+              ${currentQuestion.answers[letter]}
+            </label>`
+          );
+        }
+
+        // add this question And its answers to the output
+        output.push(
+          `<div class="slide">
+            <div class="question"> ${currentQuestion.question} </div>
+            <div class="answers"> ${answers.join("")} </div>
+          </div>`
+        );
+      }
+    );
+
+    // finally combine our output list into one string of HTML And put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+  function showResults(){
+
+    // gather answer containers from our quiz
+    const answerContainers = quizContainer.querySelectorAll('.answers');
+
+    // keep track of user's answers
+    let numCorrect = 0;
+
+    // for each question...
+    myQuestions.forEach( (currentQuestion, questionNumber) => {
+
+      // find selected answer
+      const answerContainer = answerContainers[questionNumber];
+      const selector = `input[name=question${questionNumber}]:checked`;
+      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+      // if answer is correct
+      if(userAnswer === currentQuestion.correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+
+        // color the answers green
+        answerContainers[questionNumber].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[questionNumber].style.color = 'red';
+      }
+    });
+
+    // show number of correct answers out of total
+    var reviseText = "Revision Video"
+    if (numCorrect<=(myQuestions.length/2)) {
+      var revise = reviseText.link("https://www.mrdavis.work/j276-craig-n-dave/12-memory");
+      resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}<br>Watch this video before trying the test again: ${revise}`;
+    } else {
+
+      var revise = reviseText.link("https://www.mrdavis.work/inquizitive-j276/memory-2");
+      resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}<br>Watch this video before trying the next test: ${revise}`;
+    }
+
+  }
+
+  function showSlide(n) {
+    slides[currentSlide].classList.remove('active-slide');
+    slides[n].classList.add('active-slide');
+    currentSlide = n;
+    if(currentSlide === 0){
+      previousButton.style.display = 'none';
+    }
+    else{
+      previousButton.style.display = 'inline-block';
+    }
+    if(currentSlide === slides.length-1){
+      nextButton.style.display = 'none';
+      submitButton.style.display = 'inline-block';
+    }
+    else{
+      nextButton.style.display = 'inline-block';
+      submitButton.style.display = 'none';
+    }
+  }
+
+  function showNextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  function showPreviousSlide() {
+    showSlide(currentSlide - 1);
+  }
+
+  // Variables
+  const quizContainer = document.getElementById('quiz');
+  const resultsContainer = document.getElementById('results');
+  const submitButton = document.getElementById('submit');
+  const myQuestions = [
+    {
+      question: "This is volatile storage",
+      answers: {
+        a: "ROM",
+        b: "RAM",
+        c: "Secondary Storage",
+        d: "Hard Disk",
+        e: "b"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "This contains the BIOS (Boot-up program)",
+      answers: {
+        a: "ROM",
+        b: "RAM",
+        c: "Cache",
+        d: "Hard Disk",
+        e: "a"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "You can write data more than once to this device",
+      answers: {
+        a: "CD ROM",
+        b: "ROM",
+        c: "RAM",
+        d: "DVD+R",
+        e: "b"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "Which statement is true?",
+      answers: {
+        a: "RAM is part of the hard disk",
+        b: "ROM is volatile",
+        c: "RAM stores programs/data used by the CPU",
+        d: "ROM contains is short for RAM",
+        e: "c"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "A gaming computer is “thrashing” the disk. Why?",
+      answers: {
+        a: "The game takes up too much space",
+        b: "The game uses high resolution graphics",
+        c: "The screen uses too many colours",
+        d: "The processor is short of RAM",
+        e: "d"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "Which statement is true?",
+      answers: {
+        a: "RAM is non volatile",
+        b: "RAM has a slow access time relative to other storage devices",
+        c: "RAM can be static or Dynamic (SRAM/DRAM)",
+        d: "RAM holds the BIOS",
+        e: "c"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "What is firmware?",
+      answers: {
+        a: "Data in RAM",
+        b: "A program in ROM",
+        c: "Any hardware",
+        d: "A program in cache",
+        e: "b"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "What is the difference between SRAM and DRAM",
+      answers: {
+        a: "DRAM is physically bigger",
+        b: "DRAM is faster",
+        c: "SRAM needs its data to be refreshed otherwise it loses it",
+        d: "DRAM needs its data to be refreshed otherwise it loses it",
+        e: "d"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "What is the fastest data storage in a computer",
+      answers: {
+        a: "Registers",
+        b: "RAM",
+        c: "HDD",
+        d: "ROM",
+        e: "a"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "How does data/ instructions move between the CPU and RAM",
+      answers: {
+        a: "ROM",
+        b: "Address and data bus",
+        c: "Address bus",
+        d: "Data bus",
+        e: "b"
+      },
+      correctAnswer: "b"
+    }
+
+  ];
+
+  // Kick things off
+  buildQuiz();
+
+  // Pagination
+  const previousButton = document.getElementById("previous");
+  const nextButton = document.getElementById("Next");
+  const slides = document.querySelectorAll(".slide");
+  let currentSlide = 0;
+
+  // Show the first slide
+  showSlide(currentSlide);
+
+  // Event listeners
+  submitButton.addEventListener('click', showResults);
+  previousButton.addEventListener("click", showPreviousSlide);
+  nextButton.addEventListener("click", showNextSlide);
+})();
+</script>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" href="https://quiz.mrdavis.work/quiz.css" />
+</head>
+<body>
+<h1><img style="float:left" src="https://quiz.mrdavis.work/icon.png" width="25" height="25" alt=""/>Quiz on Memory 1<img style="float:right" src="https://quiz.mrdavis.work/icon.png" width="25" height="25" alt=""/></h1>
+<div class="quiz-container">
+<div id="quiz"></div>
+</div>
+<button id="previous">Previous Question</button>
+<button id="Next">Next Question</button>
+<button id="submit">Submit Quiz</button>
+<div id ="results" ></div>
+</body>
+<script>(function() {
+// Functions 
+function buildQuiz(){
+    // variable To store the HTML output
+    const output = [];
+
+    // For Each question...
+    myQuestions.forEach(
+      (currentQuestion, questionNumber) => {
+
+        // variable To store the list Of possible answers
+        const answers = [];
+
+        // And For Each available answer...
+        for(letter in currentQuestion.answers){
+
+          // ...add an HTML radio button
+          answers.push(
+            `<label>
+              <input type="radio" name="question${questionNumber}" value="${letter}">
+              ${letter} : 
+              ${currentQuestion.answers[letter]}
+            </label>`
+          );
+        }
+
+        // add this question And its answers to the output
+        output.push(
+          `<div class="slide">
+            <div class="question"> ${currentQuestion.question} </div>
+            <div class="answers"> ${answers.join("")} </div>
+          </div>`
+        );
+      }
+    );
+
+    // finally combine our output list into one string of HTML And put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+  function showResults(){
+
+    // gather answer containers from our quiz
+    const answerContainers = quizContainer.querySelectorAll('.answers');
+
+    // keep track of user's answers
+    let numCorrect = 0;
+
+    // for each question...
+    myQuestions.forEach( (currentQuestion, questionNumber) => {
+
+      // find selected answer
+      const answerContainer = answerContainers[questionNumber];
+      const selector = `input[name=question${questionNumber}]:checked`;
+      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+      // if answer is correct
+      if(userAnswer === currentQuestion.correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+
+        // color the answers green
+        answerContainers[questionNumber].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[questionNumber].style.color = 'red';
+      }
+    });
+
+    // show number of correct answers out of total
+    var reviseText = "Revision Video"
+    if (numCorrect<=(myQuestions.length/2)) {
+      var revise = reviseText.link("https://www.mrdavis.work/j276-craig-n-dave/12-memory");
+      resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}<br>Watch this video before trying the test again: ${revise}`;
+    } else {
+
+      var revise = reviseText.link("https://www.mrdavis.work/inquizitive-j276/memory-2");
+      resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}<br>Watch this video before trying the next test: ${revise}`;
+    }
+
+  }
+
+  function showSlide(n) {
+    slides[currentSlide].classList.remove('active-slide');
+    slides[n].classList.add('active-slide');
+    currentSlide = n;
+    if(currentSlide === 0){
+      previousButton.style.display = 'none';
+    }
+    else{
+      previousButton.style.display = 'inline-block';
+    }
+    if(currentSlide === slides.length-1){
+      nextButton.style.display = 'none';
+      submitButton.style.display = 'inline-block';
+    }
+    else{
+      nextButton.style.display = 'inline-block';
+      submitButton.style.display = 'none';
+    }
+  }
+
+  function showNextSlide() {
+    showSlide(currentSlide + 1);
+  }
+
+  function showPreviousSlide() {
+    showSlide(currentSlide - 1);
+  }
+
+  // Variables
+  const quizContainer = document.getElementById('quiz');
+  const resultsContainer = document.getElementById('results');
+  const submitButton = document.getElementById('submit');
+  const myQuestions = [
+    {
+      question: "This is volatile storage",
+      answers: {
+        a: "ROM",
+        b: "RAM",
+        c: "Secondary Storage",
+        d: "Hard Disk",
+        e: "b"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "This contains the BIOS (Boot-up program)",
+      answers: {
+        a: "ROM",
+        b: "RAM",
+        c: "Cache",
+        d: "Hard Disk",
+        e: "a"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "You can write data more than once to this device",
+      answers: {
+        a: "CD ROM",
+        b: "ROM",
+        c: "RAM",
+        d: "DVD+R",
+        e: "b"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "Which statement is true?",
+      answers: {
+        a: "RAM is part of the hard disk",
+        b: "ROM is volatile",
+        c: "RAM stores programs/data used by the CPU",
+        d: "ROM contains is short for RAM",
+        e: "c"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "A gaming computer is “thrashing” the disk. Why?",
+      answers: {
+        a: "The game takes up too much space",
+        b: "The game uses high resolution graphics",
+        c: "The screen uses too many colours",
+        d: "The processor is short of RAM",
+        e: "d"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "Which statement is true?",
+      answers: {
+        a: "RAM is non volatile",
+        b: "RAM has a slow access time relative to other storage devices",
+        c: "RAM can be static or Dynamic (SRAM/DRAM)",
+        d: "RAM holds the BIOS",
+        e: "c"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "What is firmware?",
+      answers: {
+        a: "Data in RAM",
+        b: "A program in ROM",
+        c: "Any hardware",
+        d: "A program in cache",
+        e: "b"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "What is the difference between SRAM and DRAM",
+      answers: {
+        a: "DRAM is physically bigger",
+        b: "DRAM is faster",
+        c: "SRAM needs its data to be refreshed otherwise it loses it",
+        d: "DRAM needs its data to be refreshed otherwise it loses it",
+        e: "d"
+      },
+      correctAnswer: "d"
+    },
+    {
+      question: "What is the fastest data storage in a computer",
+      answers: {
+        a: "Registers",
+        b: "RAM",
+        c: "HDD",
+        d: "ROM",
+        e: "a"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "How does data/ instructions move between the CPU and RAM",
+      answers: {
+        a: "ROM",
+        b: "Address and data bus",
+        c: "Address bus",
+        d: "Data bus",
+        e: "b"
+      },
+      correctAnswer: "b"
+    }
+
+  ];
+
+  // Kick things off
+  buildQuiz();
+
+  // Pagination
+  const previousButton = document.getElementById("previous");
+  const nextButton = document.getElementById("Next");
+  const slides = document.querySelectorAll(".slide");
+  let currentSlide = 0;
+
+  // Show the first slide
+  showSlide(currentSlide);
+
+  // Event listeners
+  submitButton.addEventListener('click', showResults);
+  previousButton.addEventListener("click", showPreviousSlide);
+  nextButton.addEventListener("click", showNextSlide);
+})();
+</script>
+</html>
