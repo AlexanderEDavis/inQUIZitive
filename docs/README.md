@@ -24,12 +24,12 @@ To create a quiz using the inQUIZitive framework, download the exe file and run 
 [Found an issue or a bug?](https://github.com/AlexanderEDavis/inQUIZitive/issues/new/choose)  
 [Want to contribute to inQUIZitive?](https://github.com/AlexanderEDavis/inQUIZitive/blob/master/docs/CONTRIBUTING.md)  
 [Need to check our code of conduct](https://github.com/AlexanderEDavis/inQUIZitive/blob/master/docs/CODE_OF_CONDUCT.md)
+[Want to know how to use the CSV Importer?](https://github.com/AlexanderEDavis/inQUIZitive/blob/master/docs/Usage.md)
 
 # Roadmap
 - [x]  ~~Create console based file generator.~~
 - [x]  ~~Create console based file generator that uses a CSV Import.~~
 - [ ]  Work out how to have multiple correct answers (with checkboxes)
-- [ ]  Create GUI based file generator for manual entry.
 - [x]  ~~Create GUI based file generator that uses a CSV Import.~~
 - [ ]  Design and create standalone web app using Bootstrap (_concept images coming soon_)
 - [ ]  Design and create home screen for standalone web app (_concept images coming soon_)
