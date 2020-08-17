@@ -33,3 +33,4 @@ To create a quiz using the inQUIZitive framework, download the exe file and run 
 - [x]  ~~Create GUI based file generator that uses a CSV Import.~~
 - [ ]  Design and create standalone web app using Bootstrap (_concept images coming soon_)
 - [ ]  Design and create home screen for standalone web app (_concept images coming soon_)
+- [ ]  Create User Guide
