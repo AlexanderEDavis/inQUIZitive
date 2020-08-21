@@ -21,6 +21,12 @@ Public Class frmCSVImport
         If tbxSourceLocation.Text = "" Or tbxDestinationLocation.Text = "" Then
             MessageBox.Show("Invalid Source or Destination! Try again.", "Invalid Entry", MessageBoxButtons.OK, MessageBoxIcon.Error)
         Else
+            If System.IO.File.Exists(tbxDestinationLocation.Text) = True Then
+
+                System.IO.File.Delete(tbxDestinationLocation.Text)
+                MessageBox.Show("File Already Exists. Original File Deleted")
+
+            End If
             Dim FilePath As String = tbxSourceLocation.Text
             Dim Lines() As String = File.ReadAllLines(FilePath)
             Dim FileArray(Lines.Length - 1)() As String
@@ -177,7 +183,7 @@ Public Class frmCSVImport
                 export.WriteLine("    {")
                 export.WriteLine("      question: """ + FileArray(questionNumber)(0) + """,")
                 export.WriteLine("      answers: {")
-                numAnswer = FileArray(questionNumber).Length() - 1
+                numAnswer = FileArray(questionNumber).Length() - 2
                 For i As Integer = 1 To (numAnswer)
                     If FileArray(questionNumber)(i) = "" Then
 

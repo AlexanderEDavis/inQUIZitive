@@ -5,7 +5,7 @@
 <link rel="stylesheet" type="text/css" href="https://quiz.mrdavis.work/quiz.css" />
 </head>
 <body>
-<h1><img style="float:left" src="https://quiz.mrdavis.work/icon.png" width="25" height="25" alt=""/>Quiz on Memory 1<img style="float:right" src="https://quiz.mrdavis.work/icon.png" width="25" height="25" alt=""/></h1>
+<h1><img style="float:left" src="https://quiz.mrdavis.work/icon.png" width="25" height="25" alt=""/>Quiz on Memory 2<img style="float:right" src="https://quiz.mrdavis.work/icon.png" width="25" height="25" alt=""/></h1>
 <div class="quiz-container">
 <div id="quiz"></div>
 </div>
@@ -92,7 +92,7 @@ function buildQuiz(){
       resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}<br>Watch this video before trying the test again: ${revise}`;
     } else {
 
-      var revise = reviseText.link("https://www.mrdavis.work/inquizitive-j276/memory-2");
+      var revise = reviseText.link("https://www.mrdavis.work/j276-craig-n-dave/13-storage");
       resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}<br>Watch this video before trying the next test: ${revise}`;
     }
 
@@ -132,114 +132,94 @@ function buildQuiz(){
   const submitButton = document.getElementById('submit');
   const myQuestions = [
     {
-      question: "This is volatile storage",
+      question: "RAM - What happens when the electricity Is turned off?",
       answers: {
-        a: "ROM",
-        b: "RAM",
-        c: "Secondary Storage",
-        d: "Hard Disk",
-        e: "b"
-      },
-      correctAnswer: "b"
-    },
-    {
-      question: "This contains the BIOS (Boot-up program)",
-      answers: {
-        a: "ROM",
-        b: "RAM",
-        c: "Cache",
-        d: "Hard Disk",
-        e: "a"
-      },
-      correctAnswer: "a"
-    },
-    {
-      question: "You can write data more than once to this device",
-      answers: {
-        a: "CD ROM",
-        b: "ROM",
-        c: "RAM",
-        d: "DVD+R",
-        e: "b"
-      },
-      correctAnswer: "b"
-    },
-    {
-      question: "Which statement is true?",
-      answers: {
-        a: "RAM is part of the hard disk",
-        b: "ROM is volatile",
-        c: "RAM stores programs/data used by the CPU",
-        d: "ROM contains is short for RAM",
-        e: "c"
+        a: "The data from the memory is saved onto flash memory",
+        b: "The data from the memory is saved onto the hard disk",
+        c: "The data from the memory is not saved",
+        d: "The data from the memory is saved onto ROM"
       },
       correctAnswer: "c"
     },
     {
-      question: "A gaming computer is “thrashing” the disk. Why?",
+      question: "Which one is an example of flash memory?",
       answers: {
-        a: "The game takes up too much space",
-        b: "The game uses high resolution graphics",
-        c: "The screen uses too many colours",
-        d: "The processor is short of RAM",
-        e: "d"
-      },
-      correctAnswer: "d"
-    },
-    {
-      question: "Which statement is true?",
-      answers: {
-        a: "RAM is non volatile",
-        b: "RAM has a slow access time relative to other storage devices",
-        c: "RAM can be static or Dynamic (SRAM/DRAM)",
-        d: "RAM holds the BIOS",
-        e: "c"
-      },
-      correctAnswer: "c"
-    },
-    {
-      question: "What is firmware?",
-      answers: {
-        a: "Data in RAM",
-        b: "A program in ROM",
-        c: "Any hardware",
-        d: "A program in cache",
-        e: "b"
-      },
-      correctAnswer: "b"
-    },
-    {
-      question: "What is the difference between SRAM and DRAM",
-      answers: {
-        a: "DRAM is physically bigger",
-        b: "DRAM is faster",
-        c: "SRAM needs its data to be refreshed otherwise it loses it",
-        d: "DRAM needs its data to be refreshed otherwise it loses it",
-        e: "d"
-      },
-      correctAnswer: "d"
-    },
-    {
-      question: "What is the fastest data storage in a computer",
-      answers: {
-        a: "Registers",
+        a: "SD Card",
         b: "RAM",
-        c: "HDD",
-        d: "ROM",
-        e: "a"
+        c: "ROM",
+        d: "Cache"
       },
       correctAnswer: "a"
     },
     {
-      question: "How does data/ instructions move between the CPU and RAM",
+      question: "Which storage device stores data using magnetic technology?",
       answers: {
-        a: "ROM",
-        b: "Address and data bus",
-        c: "Address bus",
-        d: "Data bus",
-        e: "b"
+        a: "Solid state",
+        b: "Internal Hard Disk",
+        c: "USB",
+        d: "External Hard Disk"
       },
       correctAnswer: "b"
+    },
+    {
+      question: "Where does virtual memory live?",
+      answers: {
+        a: "RAM",
+        b: "Cache",
+        c: "Hard Disk",
+        d: "ROM"
+      },
+      correctAnswer: "c"
+    },
+    {
+      question: "Which one is secondary storage?",
+      answers: {
+        a: "RAM",
+        b: "Hard Disk",
+        c: "ROM",
+        d: "BIOS"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "Which storage device is not flash memory?",
+      answers: {
+        a: "RAM",
+        b: "Hard Disk",
+        c: "ROM",
+        d: "BIOS"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "Which logic gate has one input?",
+      answers: {
+        a: "AND",
+        b: "NOT",
+        c: "XAND",
+        d: "XOR"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "The inputs of a logic gate is 0 1. The output is 0. Name the logic gate.",
+      answers: {
+        a: "AND",
+        b: "RAM",
+        c: "NOT",
+        d: "NAND"
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "A computer is continuously paging to the swap file. Discuss why this might be",
+      answers: {
+        a: "There is not enough RAM",
+        b: "The cache is too slow",
+        c: "The virtual memory is too small",
+        d: "The hard disk is too slow"
+      },
+      correctAnswer: "a"
     }
 
   ];

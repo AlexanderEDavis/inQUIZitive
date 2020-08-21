@@ -1,0 +1,10 @@
+Memory 2,https://www.mrdavis.work/j276-craig-n-dave/12-memory,https://www.mrdavis.work/j276-craig-n-dave/13-storage,,,
+RAM - What happens when the electricity Is turned off?,The data from the memory is saved onto flash memory,The data from the memory is saved onto the hard disk,The data from the memory is not saved,The data from the memory is saved onto ROM,c
+Which one is an example of flash memory?,SD Card,RAM,ROM,Cache,a
+Which storage device stores data using magnetic technology?,Solid state,Internal Hard Disk,USB,External Hard Disk,b
+Where does virtual memory live?,RAM,Cache,Hard Disk,ROM,c
+Which one is secondary storage?,RAM,Hard Disk,ROM,BIOS,b
+Which storage device is not flash memory?,RAM,Hard Disk,ROM,BIOS,b
+Which logic gate has one input?,AND,NOT,XAND,XOR,b
+The inputs of a logic gate is 0 1. The output is 0. Name the logic gate.,AND,RAM,NOT,NAND,a
+A computer is continuously paging to the swap file. Discuss why this might be,There is not enough RAM,The cache is too slow,The virtual memory is too small,The hard disk is too slow,a

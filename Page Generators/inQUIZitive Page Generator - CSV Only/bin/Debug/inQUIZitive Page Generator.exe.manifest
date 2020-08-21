@@ -43,14 +43,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="inQUIZitive Page Generator.exe" size="263152">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="inQUIZitive Page Generator.exe" size="263664">
       <assemblyIdentity name="inQUIZitive Page Generator" version="2.1.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>+rbpivL2D9HyGjj+NIZcUEefDdRUTFqWQ9VqEpl9I/4=</dsig:DigestValue>
+        <dsig:DigestValue>6NYGqByOgUMkO4xCQZIk42EDVVestEODD0DaJW0m6hw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
