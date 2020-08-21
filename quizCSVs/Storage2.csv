@@ -1,0 +1,11 @@
+Storage 2,https://www.mrdavis.work/j276-craig-n-dave/13-storage,https://www.mrdavis.work/j276-craig-n-dave/14-wired-and-wireless-networks,,,
+Which type of storage uses lasers to write the data?,Optical,Magnetic,Solid State,All types,a
+The types of storage are listed below from fastest to slowest. Which order is correct?,Solid State - Optical - Magnetic,Optical - Magnetic - Solid State,Magnetic - Optical - Solid State,Solid State - Magnetic - Optical,d
+The types of storage are listed below from least expensive per GB to the most expensive per GB. Which order is correct?,Solid State - Optical - Magnetic,Optical - Magnetic - Solid State,Magnetic - Optical - Solid State,Solid State - Magnetic - Optical,b
+The types of storage are listed below from the most reliable to the least reliable per GB. Which order is correct?,Solid State - Optical - Magnetic,Optical - Magnetic - Solid State,Magnetic - Optical - Solid State,Solid State - Magnetic - Optical,d
+How many bytes are there per character in a text file?,0.5,1,1.5,2,b
+Which is the smallest of these data capacities?,2 KB,2049 bytes,0.5 MB,3 GB,a
+Which is the largest of these data capacities?,2048 MB,2 GB,2050 MB,100000 KB,c
+Which formulae can be used to estimate the file size of an image?,number of pixels * number of bytes per pixel,number of pixels * 1.1,number of pixels wide * number of pixels high * number of bytes per pixel * 1.1,number of pixels wide * number of bytes per pixel * number of pixels * 1.1,d
+Which formulae can be used to estimate the file size of a sound file?,bytes per sample * channels * height + number of minutes,samples per second * number of seconds * 1.1,samples per second * bytes per sample * duration,samples per second * samples per second * channels * duration,d
+How many bytes are needed to store 32769 different colours?,1,2,3,4,b
